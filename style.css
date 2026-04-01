@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+@font-face {
+    font-family: 'Aston';
+    src: url('./font/Aston Script.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --color_bg: #F5F5F5;
+    --color_bg_warm: #f7f5f0;
+    --color_burgundy: #87505D;
+    --color_gold: #988457;
+    --color_dark: #222222;
+    --color_mid: #4a4a4a;
+    --color_light: #666;
+    --color_white: #ffffff;
+    --color_cream: #faf8f4;
+
+    --font_serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    --font_body: 'Cormorant Garamond', Georgia, serif;
+    --font_korean: 'Noto Serif KR', serif;
+    --font_script: 'Dancing Script', cursive;
+    --font_beverly: "beverly-drive", "beverly-drive-right", cursive;
+
+    --section_pad_v: 8vw;
+    --section_pad_h: 6vw;
+    --max_w: 1400px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: var(--color_bg);
+    color: var(--color_dark);
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* =========================
+   COVER
+========================= */
+
+#cover {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.cover_label {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 30px;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--color_light);
+    padding: 3.5vw 5vw 0;
+}
+
+.cover_title_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 5vw;
+    margin-top: 8vw;
+}
+
+.cover_title_group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: fit-content;
+}
+
+.cover_name {
+    width: fit-content;
+    align-self: flex-end;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 40px;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--color_mid);
+    margin-bottom: -0.9vw;
+    line-height: 1;
+}
+
+.cover_title {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.1em;
+    font-size: clamp(5rem, 10vw, 15rem);
+    line-height: 0.88;
+    padding-right: 0;
+}
+
+.cover_p {
+    font-family: 'Aston', 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 1.15em;
+    color: var(--color-dark);
+    line-height: 1;
+}
+
+.cover_ortfolio {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 400;
+    font-size: 1em;
+    color: var(--color-dark);
+    letter-spacing: 0.1em;
+}
+
+.cover_divider {
+    width: 100%;
+    flex-shrink: 0;
+    margin-top: 9vw;
+    position: relative;
+    z-index: 1;
+    border-top: 13px solid var(--color_burgundy);
+    border-bottom: 13px solid var(--color_burgundy);
+    padding: 2px 0;
+    background-color: transparent;
+}
+
+.cover_bottom {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -210px;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.cover_img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top;
+    display: block;
+    margin: 0 auto;
+}
+
+.cover_scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    position: absolute;
+    bottom: 6%;
+    left: 0;
+    right: 0;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 3;
+    animation: bounce 1.8s ease-in-out infinite;
+}
+
+.cover_scroll_text {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 30px;
+    letter-spacing: 0.15em;
+    color: var(--color-mid);
+}
+
+.cover_scroll_icon {
+    font-size: 1.2rem;
+    color: var(--color-mid);
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(6px);
+    }
+}
+
+/* =========================
+   WELCOME SECTION
+========================= */
+
+#welcome_section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color_bg);
+    padding: 3.4vw 5vw 2.2vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.welcome_label {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 30px;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--color_light);
+}
+
+.welcome_content {
+    width: 100%;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1.55fr 0.82fr;
+    column-gap: 4.2vw;
+    align-items: end;
+    position: relative;
+    z-index: 2;
+}
+
+.welcome_text_area {
+    align-self: end;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 0.6vw;
+    padding-bottom: 10vw;
+}
+
+.welcome_title {
+    font-family: var(--font_beverly);
+    font-size: 90px;
+    /* font-weight: 200; */
+    line-height: 1;
+    color: var(--color_dark);
+    margin-bottom: 2vw;
+    letter-spacing: 0;
+}
+
+.welcome_desc {
+    max-width: 1220px;
+    font-family: 'Playfair Display', serif;
+    font-size: 37px;
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--color_dark);
+    text-align: left;
+}
+
+.welcome_menu_area {
+    width: 100%;
+    max-width: 660px;
+    justify-self: end;
+    align-self: start;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 0.6vw;
+    z-index: 3;
+}
+
+.welcome_menu_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome_menu_img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.08));
+}
+
+
+.welcome_menu_deco {
+    width: 220px;
+    height: auto;
+    display: block;
+}
+
+
+.welcome_menu_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.welcome_menu_script {
+    font-family: var(--font_beverly);
+    font-size: 35px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--color_mid);
+    margin-bottom: 0.45vw;
+    text-align: center;
+}
+
+.welcome_menu_text {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    line-height: 1.2;
+    color: #3b342f;
+    text-align: center;
+}
+
+.welcome_logo {
+    width: 78px;
+    height: auto;
+    margin-bottom: 0.9vw;
+}
+
+.welcome_menu_deco_top {
+    margin-bottom: 1vw;
+}
+
+.welcome_menu_title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--color_dark);
+    margin-bottom: 1vw;
+    letter-spacing: 0;
+}
+
+.welcome_menu_deco_mid {
+    margin-bottom: 2.2vw;
+}
+
+.welcome_menu_list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.3vw;
+}
+
+.welcome_menu_deco_bottom {
+    margin-top: 2.4vw;
+}
+
+.welcome_divider {
+    width: calc(100% + 10vw);
+    margin-left: -5vw;
+    border-top: 13px solid var(--color_burgundy);
+    border-bottom: 13px solid var(--color_burgundy);
+    padding: 2px 0;
+    margin-top: 0;
+    margin-bottom: 3vw;
+    position: relative;
+    top: -7.5vw;
+    z-index: 1;
+    flex-shrink: 0;
+}
