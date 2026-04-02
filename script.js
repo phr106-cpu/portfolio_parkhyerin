@@ -201,3 +201,17 @@ strengthItems.forEach((item) => {
         strengthsList.classList.remove("is-hovering");
     });
 });
+
+const mainDish = document.querySelector(".dish_main");
+const mainSection = document.querySelector("#main_section");
+const mainBackLink = document.querySelector(".main_back");
+
+mainDish.addEventListener("click", (e) => {
+    e.preventDefault();
+    mainSection.classList.add("is-visible");
+});
+
+mainBackLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    mainSection.classList.remove("is-visible");
+});
