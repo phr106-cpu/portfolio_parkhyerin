@@ -32,7 +32,7 @@
             <img src="img/main_img.png" alt="table setting" class="cover_img" />
             <div class="cover_scroll">
                 <span class="cover_scroll_text">SCROLL</span>
-                <i class="fa-solid fa-angles-down cover_scroll_icon"></i>
+                <img src="img/arrow.svg" alt="scroll" class="cover_scroll_icon">
             </div>
         </div>
     </section>
@@ -100,7 +100,7 @@
             <p class="course_bg course_bg_top">TODAY’S</p>
             <p class="course_bg course_bg_bottom">COURSE</p>
 
-            <a href="appetizer.html" class="course_dish dish_appetizer" data-name="1. APPETIZER">
+            <a href="#about_me_section" class="course_dish dish_appetizer" data-name="1. APPETIZER">
                 <div class="dish_plate">
                     <img src="img/appetizer_img.png" alt="1. APPETIZER">
                     <svg class="dish_text_svg" viewBox="0 0 220 220" aria-hidden="true">
@@ -114,12 +114,12 @@
                 </div>
             </a>
 
-            <a href="pasta.html" class="course_dish dish_pasta" data-name="2. PASTA">
+            <a href="#strengths_section" class="course_dish dish_pasta" data-name="2. PASTA">
                 <div class="dish_plate">
                     <img src="img/pasta_img.png" alt="2. PASTA">
                     <svg class="dish_text_svg" viewBox="0 0 220 220" aria-hidden="true">
                         <defs>
-                            <path id="dishArc2" d="M 110 12 A 98 98 0 0 1 110 208" />
+                            <path id="dishArc2" d="M 110 208 A 96 90 0 0 0 110 12" />
                         </defs>
                         <text class="dish_text">
                             <textPath href="#dishArc2" startOffset="50%" text-anchor="middle">2. PASTA</textPath>
@@ -155,6 +155,105 @@
                     </svg>
                 </div>
             </a>
+        </div>
+    </section>
+
+    <!-- 04. ABOUT ME -->
+    <section id="about_me_section">
+        <div class="about_me_inner">
+            <div class="about_me_content">
+                <div class="about_me_logo_wrap">
+                    <img src="img/logo_patten.png" alt="HYERIN logo" class="about_me_logo">
+                    <p class="about_me_name">HYERIN</p>
+                </div>
+
+                <div class="about_me_text_wrap">
+                    <p class="about_me_text">
+                        이 포트폴리오는 호텔 코스요리 레스토랑에서의<br>
+                        현장 경험을 저만의 방식으로 풀어낸 작업입니다.
+                    </p>
+
+                    <p class="about_me_text">
+                        저는 호텔리어로 근무하며<br>
+                        사람의 경험이 완성되는 흐름을 현장에서 배워왔습니다.
+                    </p>
+
+                    <p class="about_me_text">
+                        그 경험을 바탕으로 사용자의 동선과 감정을 고려한<br>
+                        경험 설계에 누구보다 자신이 있습니다.
+                    </p>
+
+                    <p class="about_me_highlight">
+                        사람의 경험을 설계해온 UX/UI 디자이너, 박혜린입니다.
+                    </p>
+                </div>
+            </div>
+
+            <a href="#course_section" class="about_me_back">
+                <img src="img/arrow.svg" class="about_me_back_icon">
+                <span class="about_me_back_text">TODAY’S COURSE</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- 05. STRENGTHS -->
+    <section id="strengths_section">
+        <div class="strengths_inner">
+            <div class="strengths_list">
+                <article class="strength_item">
+                    <div class="strength_arc_wrap">
+                        <svg class="strength_arc_svg" viewBox="0 0 320 140" aria-hidden="true">
+                            <defs>
+                                <path id="strengthArc1" d="M 40 110 A 120 120 0 0 1 280 110" />
+                            </defs>
+                            <text class="strength_arc_text">
+                                <textPath href="#strengthArc1" startOffset="50%" text-anchor="middle">
+                                    Communication
+                                </textPath>
+                            </text>
+                        </svg>
+                    </div>
+                    <div class="strength_img_wrap">
+                        <img src="img/pasta1.png" alt="Communication pasta" class="strength_img">
+                    </div>
+                </article>
+
+                <article class="strength_item">
+                    <div class="strength_arc_wrap">
+                        <svg class="strength_arc_svg" viewBox="0 0 320 140" aria-hidden="true">
+                            <defs>
+                                <path id="strengthArc2" d="M 40 110 A 120 120 0 0 1 280 110" />
+                            </defs>
+                            <text class="strength_arc_text">
+                                <textPath href="#strengthArc2" startOffset="50%" text-anchor="middle">
+                                    Adaptability
+                                </textPath>
+                            </text>
+                        </svg>
+                    </div>
+                    <div class="strength_img_wrap">
+                        <img src="img/pasta2.png" alt="Adaptability pasta" class="strength_img">
+                    </div>
+                </article>
+
+                <article class="strength_item">
+                    <div class="strength_arc_wrap">
+                        <svg class="strength_arc_svg" viewBox="0 0 320 140" aria-hidden="true">
+                            <defs>
+                                <path id="strengthArc3" d="M 40 110 A 120 120 0 0 1 280 110" />
+                            </defs>
+                            <text class="strength_arc_text">
+                                <textPath href="#strengthArc3" startOffset="50%" text-anchor="middle">
+                                    Ownership
+                                </textPath>
+                            </text>
+                        </svg>
+                    </div>
+                    <div class="strength_img_wrap">
+                        <img src="img/pasta3.png" alt="Ownership pasta" class="strength_img">
+                    </div>
+                </article>
+            </div>
         </div>
     </section>
 
