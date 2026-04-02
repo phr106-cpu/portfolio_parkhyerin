@@ -11,7 +11,7 @@
 :root {
     --color_bg: #F5F5F5;
     --color_bg_warm: #f7f5f0;
-    --color_burgundy: #87505D;
+    --color_burgundy: #6B2737;
     --color_gold: #988457;
     --color_dark: #222222;
     --color_mid: #4a4a4a;
@@ -19,6 +19,7 @@
     --color_white: #ffffff;
     --color_cream: #faf8f4;
     --color_gray_txt: rgba(171, 171, 171, 0.3);
+    --color_bggray_txt: rgba(171, 171, 171, 0.15);
 
     --font_serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
     --font_body: 'Cormorant Garamond', Georgia, serif;
@@ -50,9 +51,11 @@ html {
 body {
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
+    overflow-y: hidden;
     background-color: var(--color_bg);
     color: var(--color_dark);
+    overflow-x: hidden;
 }
 
 section {
@@ -705,64 +708,168 @@ img {
 ========================= */
 
 #strengths_section {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
+    z-index: 100;
     background: var(--color_bg);
-    position: relative;
+    transform: translateX(100%);
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.18, 1);
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
+}
+
+#strengths_section.is-visible {
+    transform: translateX(0);
 }
 
 #strengths_section::before {
     content: "Strengths";
     position: absolute;
-    top: 0;
+    top: -1.2vw;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     text-align: center;
     font-family: var(--font_serif);
-    font-size: clamp(12rem, 28vw, 28rem);
+    font-size: clamp(17.5rem, 32.5vw, 33.5rem);
     line-height: 0.78;
-    letter-spacing: -0.06em;
-    color: var(--color_gray_txt);
+    letter-spacing: -0.015em;
+    color: var(--color_bggray_txt);
     pointer-events: none;
     z-index: 0;
 }
 
 .strengths_inner {
     width: 100%;
-    max-width: 120rem;
+    height: 100vh;
     margin: 0 auto;
-    padding: 10vw 4vw 4vw;
+    padding: 0 4vw;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     position: relative;
     z-index: 1;
 }
 
 .strengths_list {
     width: 100%;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 6vw;
-    align-items: start;
+    column-gap: 4vw;
+    align-items: end;
 }
 
+/* ---- 각 아이템 ---- */
+
 .strength_item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+    cursor: default;
+}
+
+/* 호버 안된 것들 흐리게 */
+.strengths_list.is-hovering .strength_item {
+    opacity: 0.3;
+    filter: blur(0.1rem);
+}
+
+.strengths_list.is-hovering .strength_item.is-active {
+    opacity: 1;
+    filter: none;
+}
+
+/* ---- 설명 텍스트 ---- */
+
+.strength_info {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    gap: 0.8rem;
+    margin-bottom: 4vw;
+    opacity: 0;
+    transform: translateY(0.6rem);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.strength_name {
+    font-family: var(--font_serif);
+    font-size: clamp(2.4rem, 2.2vw, 3.4rem);
+    font-weight: 700;
+    color: var(--color_dark);
+    line-height: 1;
+}
+
+.strength_desc {
+    font-family: var(--font_pretendard);
+    font-size: clamp(2.0rem, 1.3vw, 2.1rem);
+    font-weight: 400;
+    color: var(--color_mid);
+    line-height: 1.4;
+    word-break: keep-all;
+    text-align: center;
+}
+
+/* 호버 시 설명 텍스트 표시 */
+.strength_item.is-active .strength_info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.strength_pasta_wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.strength_circle {
+    width: 28vw;
+    max-width: 28vw;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--color_burgundy);
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    transform-origin: center bottom;
+    transition: transform 0.4s cubic-bezier(0.34, 1.3, 0.64, 1);
+    z-index: 0;
+}
+
+.strength_item.is-active .strength_circle {
+    transform: translateX(-50%) scale(1);
 }
 
 .strength_arc_wrap {
     width: 100%;
     max-width: 25rem;
-    margin-bottom: -0.5vw;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.25s ease, height 0.25s ease;
+}
+
+.strength_item.is-active .strength_arc_wrap {
+    opacity: 0;
+    pointer-events: none;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
 }
 
 .strength_arc_svg {
@@ -780,16 +887,69 @@ img {
     fill: var(--color_dark);
 }
 
+/* 호버 시 아크 텍스트 숨김 */
+.strength_item.is-active .strength_arc_wrap {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 이미지 */
 .strength_img_wrap {
     width: 100%;
     max-width: 20rem;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s cubic-bezier(0.34, 1.3, 0.64, 1);
+}
+
+/* 호버 시 이미지 커짐 */
+.strength_item.is-active .strength_img_wrap {
+    transform: scale(1.12);
 }
 
 .strength_img {
     width: 100%;
     height: auto;
     display: block;
+}
+
+/* ---- back 버튼 ---- */
+
+.strengths_back {
+    position: absolute;
+    right: 4vw;
+    bottom: 3vw;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--color_mid);
+}
+
+.strengths_back_icon {
+    width: 3rem;
+    height: auto;
+    display: block;
+    transform: rotate(-90deg);
+}
+
+.strengths_back_text {
+    font-family: var(--font_julius);
+    font-size: clamp(1.725rem, 1.15vw, 1.975rem);
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+    color: var(--color_mid);
+    text-align: right;
+}
+
+#strengths_section {
+    transform: translateX(100%);
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+#strengths_section.is-visible {
+    transform: translateX(0);
 }

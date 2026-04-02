@@ -1,4 +1,4 @@
-const sections = document.querySelectorAll("section");
+const sections = document.querySelectorAll("section:not(#strengths_section)");
 let current_index = 0;
 let is_scrolling = false;
 
@@ -147,17 +147,57 @@ appetizerDish.addEventListener("click", (e) => {
         appetizerDish.classList.remove("is-entering");
     }, 700);
 });
-
 const pastaDish = document.querySelector(".dish_pasta");
 const strengthsSection = document.querySelector("#strengths_section");
 
 pastaDish.addEventListener("click", (e) => {
     e.preventDefault();
 
-    strengthsSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
+    // 슬라이드 준비 (혹시 초기화 안됐을 경우 대비)
+    strengthsSection.classList.remove("is-visible");
+
+    // 스크롤 이동
+    go_to_section([...sections].indexOf(strengthsSection));
+
+    // 스크롤 완료 타이밍에 맞춰 슬라이드 인
+    setTimeout(() => {
+        strengthsSection.classList.add("is-visible");
+    }, 500);
+});
+const strengthsBackLink = document.querySelector(".strengths_back");
+
+strengthsBackLink.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    strengthsSection.classList.remove("is-visible");
+
+    setTimeout(() => {
+        go_to_section([...sections].indexOf(courseSectionEl));
+    }, 300);
+});
+
+pastaDish.addEventListener("click", (e) => {
+    e.preventDefault();
+    strengthsSection.classList.add("is-visible");
+});
+
+strengthsBackLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    strengthsSection.classList.remove("is-visible");
+});
+
+const strengthItems = document.querySelectorAll(".strength_item");
+const strengthsList = document.querySelector(".strengths_list");
+
+strengthItems.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+        strengthsList.classList.add("is-hovering");
+        strengthItems.forEach(i => i.classList.remove("is-active"));
+        item.classList.add("is-active");
     });
 
-    current_index = [...sections].indexOf(strengthsSection);
+    item.addEventListener("mouseleave", () => {
+        item.classList.remove("is-active");
+        strengthsList.classList.remove("is-hovering");
+    });
 });
