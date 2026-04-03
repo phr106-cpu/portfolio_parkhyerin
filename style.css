@@ -51,7 +51,6 @@ html {
 body {
     width: 100%;
     height: 100%;
-    /* overflow-y: scroll; */
     overflow-y: hidden;
     background-color: var(--color_bg);
     color: var(--color_dark);
@@ -311,13 +310,11 @@ img {
     filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.08));
 }
 
-
 .welcome_menu_deco {
     width: 220px;
     height: auto;
     display: block;
 }
-
 
 .welcome_menu_item {
     display: flex;
@@ -417,7 +414,6 @@ img {
     padding: 0 3.5vw;
 }
 
-/* background text */
 .course_bg {
     position: absolute;
     font-family: var(--font_serif);
@@ -440,7 +436,6 @@ img {
     bottom: 0;
 }
 
-/* dishes */
 .course_dish {
     width: 100%;
     max-width: 28rem;
@@ -464,7 +459,6 @@ img {
     transition: transform 0.15s ease;
 }
 
-/* 접시 밖 글씨 */
 .dish_text_svg {
     position: absolute;
     inset: -20%;
@@ -512,31 +506,25 @@ img {
     margin-top: 40vh;
 }
 
-/* arc direction */
 .dish_appetizer .dish_text_svg {
     transform: rotate(-15deg);
     inset: -20%;
 }
 
-
-
 .dish_pasta .dish_text_svg {
     transform: rotate(50deg);
     inset: -18%;
-
 }
 
 .dish_main .dish_text_svg {
     transform: rotate(203deg);
     inset: -18%;
-
 }
 
 .dish_dessert .dish_text_svg {
     transform: rotate(13deg);
 }
 
-/* hover */
 #course_section.is-hovering .course_dish {
     opacity: 0.2;
     filter: blur(0.22rem);
@@ -666,9 +654,13 @@ img {
     height: auto;
     display: block;
     transform: rotate(180deg);
+    transition: transform 0.2s ease;
 }
 
-/* appetizer click transition */
+.about_me_back:hover .about_me_back_icon {
+    transform: rotate(180deg) translateY(-4px);
+}
+
 .dish_appetizer.is-entering {
     transform: scale(1.08);
     z-index: 10;
@@ -695,14 +687,6 @@ img {
     transform: translateY(0);
 }
 
-.about_me_back_icon {
-    transition: transform 0.2s ease;
-}
-
-.about_me_back:hover .about_me_back_icon {
-    transform: rotate(180deg) translateY(-4px);
-}
-
 /* =========================
    STRENGTHS SECTION
 ========================= */
@@ -716,7 +700,7 @@ img {
     z-index: 100;
     background: var(--color_bg);
     transform: translateX(100%);
-    transition: transform 0.8s cubic-bezier(0.77, 0, 0.18, 1);
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
     overflow: hidden;
 }
 
@@ -762,8 +746,6 @@ img {
     align-items: end;
 }
 
-/* ---- 각 아이템 ---- */
-
 .strength_item {
     width: 100%;
     height: 100%;
@@ -776,7 +758,6 @@ img {
     cursor: default;
 }
 
-/* 호버 안된 것들 흐리게 */
 .strengths_list.is-hovering .strength_item {
     opacity: 0.3;
     filter: blur(0.1rem);
@@ -786,8 +767,6 @@ img {
     opacity: 1;
     filter: none;
 }
-
-/* ---- 설명 텍스트 ---- */
 
 .strength_info {
     width: 100%;
@@ -821,12 +800,10 @@ img {
     text-align: center;
 }
 
-/* 호버 시 설명 텍스트 표시 */
 .strength_item.is-active .strength_info {
     opacity: 1;
     transform: translateY(0);
 }
-
 
 .strength_pasta_wrap {
     width: 100%;
@@ -887,13 +864,6 @@ img {
     fill: var(--color_dark);
 }
 
-/* 호버 시 아크 텍스트 숨김 */
-.strength_item.is-active .strength_arc_wrap {
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* 이미지 */
 .strength_img_wrap {
     width: 100%;
     max-width: 20rem;
@@ -905,7 +875,6 @@ img {
     transition: transform 0.4s cubic-bezier(0.34, 1.3, 0.64, 1);
 }
 
-/* 호버 시 이미지 커짐 */
 .strength_item.is-active .strength_img_wrap {
     transform: scale(1.12);
 }
@@ -915,8 +884,6 @@ img {
     height: auto;
     display: block;
 }
-
-/* ---- back 버튼 ---- */
 
 .strengths_back {
     position: absolute;
@@ -943,15 +910,6 @@ img {
     letter-spacing: 0.04em;
     color: var(--color_mid);
     text-align: right;
-}
-
-#strengths_section {
-    transform: translateX(100%);
-    transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
-}
-
-#strengths_section.is-visible {
-    transform: translateX(0);
 }
 
 /* =========================
@@ -984,8 +942,6 @@ img {
     justify-content: flex-start;
     position: relative;
 }
-
-/* ---- 헤더 ---- */
 
 .main_header {
     display: flex;
@@ -1038,8 +994,6 @@ img {
     text-transform: uppercase;
 }
 
-/* ---- 프로젝트 리스트 ---- */
-
 .main_list {
     width: 70%;
     align-self: flex-end;
@@ -1057,7 +1011,7 @@ img {
     padding: 1.6vw 0 1.6vw 1.5vw;
     cursor: pointer;
     position: relative;
-    transition: color 0.2s ease, font-size 0.2s ease;
+    transition: color 0.2s ease;
 }
 
 .main_item::before {
@@ -1081,13 +1035,11 @@ img {
     color: #000000;
 }
 
-
 .main_item_left {
     display: flex;
     align-items: center;
     gap: 3vw;
 }
-
 
 .main_item_info {
     display: flex;
@@ -1135,8 +1087,6 @@ img {
     opacity: 0.2;
 }
 
-/* ---- back 버튼 ---- */
-
 .main_back {
     position: absolute;
     bottom: 5vw;
@@ -1165,10 +1115,12 @@ img {
 }
 
 /* =========================
-   NMK PROJECT SECTION
+   PROJECT DETAIL SECTIONS
 ========================= */
 
-#nmk_section {
+#nmk_section,
+#od_section,
+#gs25_section {
     position: fixed;
     top: 0;
     left: 0;
@@ -1186,12 +1138,16 @@ img {
     padding: 0 6vw 8vw 6vw;
 }
 
-#nmk_section.is-visible {
+#nmk_section.is-visible,
+#od_section.is-visible,
+#gs25_section.is-visible {
     opacity: 1;
     pointer-events: auto;
 }
 
-#nmk_section::before {
+#nmk_section::before,
+#od_section::before,
+#gs25_section::before {
     content: "PROJECT";
     position: absolute;
     top: -2vw;
@@ -1208,17 +1164,7 @@ img {
     text-align: center;
 }
 
-
-
-.nmk_img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transform: scale(1.5);
-    transform-origin: 80% center;
-}
-
-.nmk_inner {
+.project_inner {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -1229,41 +1175,46 @@ img {
     transform: translateX(2%);
 }
 
-.nmk_img_wrap {
+.project_img_wrap {
     flex: 0 0 45%;
     max-width: 45%;
+    /* display: flex;
+    align-items: flex-start; */
 }
 
-.nmk_info {
+.project_img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: scale(1.5);
+    transform-origin: 80% center;
+    object-position: top;
+}
+
+.project_info {
     flex: 0 0 auto;
     width: auto;
     display: flex;
     flex-direction: column;
     gap: 2vw;
+    justify-content: flex-start;
+    padding-top: 1vw;
 }
 
-.nmk_label {
+.project_label {
     font-family: var(--font_pretendard);
     font-size: clamp(1.1rem, 1.3vw, 1.7rem);
     font-weight: 400;
     color: var(--color_light);
 }
 
-.nmk_title_group {
+.project_title_group {
     display: flex;
     flex-direction: column;
     gap: 0.3vw;
 }
 
-.nmk_category {
-    font-family: var(--font_serif);
-    font-size: clamp(2.5rem, 4vw, 5.5rem);
-    font-weight: 400;
-    color: var(--color_dark);
-    line-height: 1;
-}
-
-.nmk_title {
+.project_title {
     font-family: var(--font_julius);
     font-size: clamp(2.2rem, 2.8vw, 3.6rem);
     font-weight: 300;
@@ -1271,7 +1222,7 @@ img {
     line-height: 1.3;
 }
 
-.nmk_details {
+.project_details {
     width: 100%;
     display: grid;
     grid-template-columns: auto 1fr;
@@ -1280,7 +1231,7 @@ img {
     align-items: start;
 }
 
-.nmk_detail_key {
+.project_detail_key {
     font-family: var(--font_pretendard);
     font-size: clamp(1.2rem, 1.3vw, 1.7rem);
     font-weight: 800;
@@ -1288,7 +1239,7 @@ img {
     white-space: nowrap;
 }
 
-.nmk_detail_val {
+.project_detail_val {
     font-family: var(--font_pretendard);
     font-size: clamp(1.3rem, 1.4vw, 1.8rem);
     font-weight: 500;
@@ -1296,14 +1247,14 @@ img {
     line-height: 1.5;
 }
 
-.nmk_btns {
+.project_btns {
     display: flex;
     flex-wrap: wrap;
     gap: 1.2vw;
     justify-content: center;
 }
 
-.nmk_btn {
+.project_btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1320,12 +1271,12 @@ img {
     transition: background 0.25s ease, color 0.25s ease;
 }
 
-.nmk_btn:hover {
+.project_btn:hover {
     background: var(--color_burgundy);
     color: #ffffff;
 }
 
-.nmk_back {
+.project_back {
     position: absolute;
     bottom: 5vw;
     left: 6vw;
@@ -1340,16 +1291,16 @@ img {
     border: 1.8px solid var(--color_burgundy);
     border-radius: 999px;
     padding: 0.6vw 1vw;
-    transition: border-color 0.2s ease, color 0.2s ease;
-    z-index: 2;
+    transition: background 0.2s ease, color 0.2s ease;
+    z-index: 10;
 }
 
-.nmk_back:hover {
+.project_back:hover {
     background: var(--color_burgundy);
     color: #ffffff;
 }
 
-.nmk_curve {
+.project_curve {
     position: absolute;
     left: 0;
     bottom: 2%;
@@ -1359,13 +1310,23 @@ img {
     pointer-events: none;
 }
 
-.nmk_curve_path {
+.project_curve_path {
     stroke-dasharray: 2000;
     stroke-dashoffset: 2000;
     transition: stroke-dashoffset 0s;
 }
 
-#nmk_section.is-visible .nmk_curve_path {
+#nmk_section.is-visible .project_curve_path,
+#od_section.is-visible .project_curve_path,
+#gs25_section.is-visible .project_curve_path {
     stroke-dashoffset: 0;
     transition: stroke-dashoffset 1.4s ease-in-out;
+}
+
+#od_section .project_inner {
+    transform: translateX(2%) translateY(-2vw);
+}
+
+#gs25_section .project_inner {
+    transform: translateX(2%) translateY(-4vw);
 }

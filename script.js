@@ -43,12 +43,12 @@ window.addEventListener("wheel", (e) => {
     } else if (e.deltaY < 0) {
         go_to_section(current_index - 1);
     }
-
 }, { passive: false });
 
 window.addEventListener("load", update_current_section);
 window.addEventListener("resize", update_current_section);
 
+/* ---- COURSE 섹션 dish hover ---- */
 const courseSection = document.querySelector("#course_section");
 const courseDishes = document.querySelectorAll(".course_dish");
 
@@ -71,7 +71,6 @@ courseDishes.forEach((dish) => {
             if (itemTextPath.dataset.defaultText) {
                 itemTextPath.textContent = itemTextPath.dataset.defaultText;
             }
-
             if (itemPath.dataset.defaultD) {
                 itemPath.setAttribute("d", itemPath.dataset.defaultD);
             }
@@ -82,7 +81,6 @@ courseDishes.forEach((dish) => {
 
         dish.classList.add("is-active");
         textPath.textContent = "CLICK THE DISH";
-
         path.setAttribute("d", "M 110 208 A 98 98 0 0 0 110 12");
     });
 
@@ -94,37 +92,10 @@ courseDishes.forEach((dish) => {
     });
 });
 
-const appetizerLink = document.querySelector('.dish_appetizer');
-const aboutSection = document.querySelector('#about_me_section');
-
-appetizerLink.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    aboutSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-    });
-
-    current_index = [...sections].indexOf(aboutSection);
-});
-
-const backToCourseLink = document.querySelector('.about_me_back');
-const courseSectionEl = document.querySelector('#course_section');
-
-backToCourseLink.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    courseSectionEl.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-    });
-
-    current_index = [...sections].indexOf(courseSectionEl);
-});
-
+/* ---- APPETIZER → ABOUT ME ---- */
 const appetizerDish = document.querySelector(".dish_appetizer");
 const aboutMeSection = document.querySelector("#about_me_section");
-const aboutMeInner = document.querySelector("#about_me_section .about_me_inner");
+const courseSectionEl = document.querySelector("#course_section");
 
 appetizerDish.addEventListener("click", (e) => {
     e.preventDefault();
@@ -133,11 +104,7 @@ appetizerDish.addEventListener("click", (e) => {
     appetizerDish.classList.add("is-entering");
 
     setTimeout(() => {
-        aboutMeSection.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
+        aboutMeSection.scrollIntoView({ behavior: "smooth", block: "start" });
         current_index = [...sections].indexOf(aboutMeSection);
     }, 180);
 
@@ -147,34 +114,20 @@ appetizerDish.addEventListener("click", (e) => {
         appetizerDish.classList.remove("is-entering");
     }, 700);
 });
+
+/* ---- ABOUT ME → COURSE back ---- */
+const backToCourseLink = document.querySelector(".about_me_back");
+
+backToCourseLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    courseSectionEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    current_index = [...sections].indexOf(courseSectionEl);
+});
+
+/* ---- PASTA → STRENGTHS ---- */
 const pastaDish = document.querySelector(".dish_pasta");
 const strengthsSection = document.querySelector("#strengths_section");
-
-pastaDish.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    // 슬라이드 준비 (혹시 초기화 안됐을 경우 대비)
-    strengthsSection.classList.remove("is-visible");
-
-    // 스크롤 이동
-    go_to_section([...sections].indexOf(strengthsSection));
-
-    // 스크롤 완료 타이밍에 맞춰 슬라이드 인
-    setTimeout(() => {
-        strengthsSection.classList.add("is-visible");
-    }, 500);
-});
 const strengthsBackLink = document.querySelector(".strengths_back");
-
-strengthsBackLink.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    strengthsSection.classList.remove("is-visible");
-
-    setTimeout(() => {
-        go_to_section([...sections].indexOf(courseSectionEl));
-    }, 300);
-});
 
 pastaDish.addEventListener("click", (e) => {
     e.preventDefault();
@@ -186,6 +139,7 @@ strengthsBackLink.addEventListener("click", (e) => {
     strengthsSection.classList.remove("is-visible");
 });
 
+/* ---- STRENGTHS hover ---- */
 const strengthItems = document.querySelectorAll(".strength_item");
 const strengthsList = document.querySelector(".strengths_list");
 
@@ -202,6 +156,7 @@ strengthItems.forEach((item) => {
     });
 });
 
+/* ---- MAIN → PROJECT LIST ---- */
 const mainDish = document.querySelector(".dish_main");
 const mainSection = document.querySelector("#main_section");
 const mainBackLink = document.querySelector(".main_back");
@@ -216,17 +171,40 @@ mainBackLink.addEventListener("click", (e) => {
     mainSection.classList.remove("is-visible");
 });
 
-// NMK 섹션 연결
+/* ---- PROJECT DETAIL 섹션들 ---- */
 const nmkSection = document.querySelector("#nmk_section");
-const nmkBackLink = document.querySelector(".nmk_back");
+const odSection = document.querySelector("#od_section");
+const gs25Section = document.querySelector("#gs25_section");
 
-// 01번 리스트 클릭시 NMK 섹션 열기
+const nmkBackLink = document.querySelector(".nmk_back");
+const odBackLink = document.querySelector(".od_back");
+const gs25BackLink = document.querySelector(".gs25_back");
+
+// 리스트 클릭
 document.querySelectorAll(".main_item")[0].addEventListener("click", () => {
     nmkSection.classList.add("is-visible");
 });
 
-// < Project List 클릭시 돌아가기
+document.querySelectorAll(".main_item")[1].addEventListener("click", () => {
+    odSection.classList.add("is-visible");
+});
+
+document.querySelectorAll(".main_item")[2].addEventListener("click", () => {
+    gs25Section.classList.add("is-visible");
+});
+
+// back 버튼
 nmkBackLink.addEventListener("click", (e) => {
     e.preventDefault();
     nmkSection.classList.remove("is-visible");
+});
+
+odBackLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    odSection.classList.remove("is-visible");
+});
+
+gs25BackLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    gs25Section.classList.remove("is-visible");
 });
