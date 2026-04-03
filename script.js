@@ -215,3 +215,18 @@ mainBackLink.addEventListener("click", (e) => {
     e.preventDefault();
     mainSection.classList.remove("is-visible");
 });
+
+// NMK 섹션 연결
+const nmkSection = document.querySelector("#nmk_section");
+const nmkBackLink = document.querySelector(".nmk_back");
+
+// 01번 리스트 클릭시 NMK 섹션 열기
+document.querySelectorAll(".main_item")[0].addEventListener("click", () => {
+    nmkSection.classList.add("is-visible");
+});
+
+// < Project List 클릭시 돌아가기
+nmkBackLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    nmkSection.classList.remove("is-visible");
+});
