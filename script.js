@@ -1,4 +1,4 @@
-const sections = document.querySelectorAll("section:not(#strengths_section)");
+const sections = document.querySelectorAll("section:not(#strengths_section):not(#main_section):not(#nmk_section):not(#od_section):not(#gs25_section)");
 let current_index = 0;
 let is_scrolling = false;
 
@@ -37,6 +37,13 @@ function go_to_section(index) {
 window.addEventListener("wheel", (e) => {
     e.preventDefault();
     if (is_scrolling) return;
+
+    const dessertIndex = [...sections].indexOf(dessertSection);
+    const courseIndex = [...sections].indexOf(courseSectionEl);
+    if (e.deltaY < 0 && current_index === dessertIndex) {
+        go_to_section(courseIndex);
+        return;
+    }
 
     if (e.deltaY > 0) {
         go_to_section(current_index + 1);
@@ -124,7 +131,7 @@ backToCourseLink.addEventListener("click", (e) => {
     current_index = [...sections].indexOf(courseSectionEl);
 });
 
-/* ---- PASTA → STRENGTHS ---- */
+/* ---- PASTA ---- */
 const pastaDish = document.querySelector(".dish_pasta");
 const strengthsSection = document.querySelector("#strengths_section");
 const strengthsBackLink = document.querySelector(".strengths_back");
@@ -216,12 +223,15 @@ const dessertBackLink = document.querySelector(".dessert_back");
 
 dessertDish.addEventListener("click", (e) => {
     e.preventDefault();
+    is_scrolling = true;  // ← 추가
     dessertSection.scrollIntoView({ behavior: "smooth", block: "start" });
     current_index = [...sections].indexOf(dessertSection);
 
     setTimeout(() => {
         dessertSection.classList.add("is-visible");
-    }, 400);
+        is_scrolling = false;  // ← 추가
+        update_current_section();  // ← 추가
+    }, 900);
 });
 
 dessertBackLink.addEventListener("click", (e) => {
@@ -230,3 +240,30 @@ dessertBackLink.addEventListener("click", (e) => {
     current_index = [...sections].indexOf(courseSectionEl);
     dessertSection.classList.remove("is-visible");
 });
+
+// dessert_scroll 클릭시 thankyou로 이동
+const dessertScrollBtn = document.querySelector(".dessert_scroll");
+const thankyouSection = document.querySelector("#thankyou_section");
+
+dessertScrollBtn.addEventListener("click", () => {
+    is_scrolling = true;
+    thankyouSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    current_index = [...sections].indexOf(thankyouSection);
+    setTimeout(() => {
+        thankyouSection.classList.add("is-visible");
+        is_scrolling = false;
+        update_current_section();
+    }, 900);
+});
+
+/* ---- THANK YOU 곡선 애니메이션 ---- */
+// thankyou_section이 스크롤로 보일 때 곡선 애니메이션 트리거
+const thankyouObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            thankyouSection.classList.add("is-visible");
+        }
+    });
+}, { threshold: 0.3 });
+
+thankyouObserver.observe(thankyouSection);
