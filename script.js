@@ -208,3 +208,25 @@ gs25BackLink.addEventListener("click", (e) => {
     e.preventDefault();
     gs25Section.classList.remove("is-visible");
 });
+
+/* ---- DESSERT ---- */
+const dessertDish = document.querySelector(".dish_dessert");
+const dessertSection = document.querySelector("#dessert_section");
+const dessertBackLink = document.querySelector(".dessert_back");
+
+dessertDish.addEventListener("click", (e) => {
+    e.preventDefault();
+    dessertSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    current_index = [...sections].indexOf(dessertSection);
+
+    setTimeout(() => {
+        dessertSection.classList.add("is-visible");
+    }, 400);
+});
+
+dessertBackLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    courseSectionEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    current_index = [...sections].indexOf(courseSectionEl);
+    dessertSection.classList.remove("is-visible");
+});
