@@ -281,7 +281,7 @@ img {
 
 .welcome_menu_area {
     width: 100%;
-    max-width: 500px;
+    max-width: 460px;
     justify-self: end;
     align-self: start;
     position: relative;
@@ -312,7 +312,7 @@ img {
 }
 
 .welcome_menu_deco {
-    width: 200px;
+    width: 170px;
     height: auto;
     display: block;
 }
@@ -344,13 +344,13 @@ img {
 }
 
 .welcome_logo {
-    width: 60px;
     height: auto;
-    margin-bottom: 0.9vw;
+    width: 52px;
+    margin-bottom: 0.5rem;
 }
 
 .welcome_menu_deco_top {
-    margin-bottom: 1vw;
+    margin-bottom: 0.5rem;
 }
 
 .welcome_menu_title {
@@ -358,12 +358,12 @@ img {
     font-size: clamp(1.1rem, 1.2vw, 1.5rem);
     font-weight: 500;
     color: var(--color_dark);
-    margin-bottom: 1vw;
+    margin-bottom: 0.6rem;
     letter-spacing: 0;
 }
 
 .welcome_menu_deco_mid {
-    margin-bottom: 2.2vw;
+    margin-bottom: 1.2rem;
 }
 
 .welcome_menu_list {
@@ -371,11 +371,11 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.3vw;
+    gap: 2vw;
 }
 
 .welcome_menu_deco_bottom {
-    margin-top: 2.4vw;
+    margin-top: 1.5vw;
 }
 
 .welcome_divider {
@@ -1167,6 +1167,7 @@ img {
     text-align: center;
 }
 
+
 .project_inner {
     width: 100%;
     display: flex;
@@ -1689,4 +1690,56 @@ p.thankyou_title {
     z-index: 0;
     pointer-events: none;
     overflow: visible;
+}
+
+@media (min-width: 1700px) {
+
+    .welcome_menu_area {
+        max-width: 470px;
+    }
+
+    .welcome_logo {
+        margin-bottom: 0.4rem;
+    }
+
+    .welcome_menu_deco_top {
+        margin-bottom: 0.4rem;
+    }
+
+    .welcome_menu_title {
+        margin-bottom: 0.5rem;
+    }
+
+    .welcome_menu_deco_mid {
+        margin-bottom: 1.2rem;
+    }
+
+    .welcome_menu_list {
+        gap: 1.2rem;
+    }
+
+    .welcome_menu_deco_bottom {
+        margin-top: 1.2rem;
+    }
+
+    .dessert_img {
+        width: clamp(380px, 28vw, 620px);
+    }
+
+    .dessert_img_wrap {
+        margin-top: -4vw;
+    }
+
+    #nmk_section .project_img_wrap {
+        flex: 0 0 54%;
+        max-width: 54%;
+    }
+
+    #nmk_section .project_img {
+        transform: scale(1.08);
+    }
+
+    .main_list {
+        margin-top: 16vh;
+    }
 }
