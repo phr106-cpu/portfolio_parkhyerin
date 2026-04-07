@@ -233,7 +233,7 @@ img {
 
 .welcome_label {
     font-family: var(--font_julius);
-    font-size: 30px;
+    font-size: clamp(1.4rem, 1.6vw, 1.9rem);
     letter-spacing: -0.01em;
     text-transform: uppercase;
     color: var(--color_light);
@@ -443,7 +443,7 @@ img {
     color: var(--color_mid);
     position: relative;
     z-index: 2;
-    transition: opacity 0.15s ease, filter 0.15s ease, transform 0.15s ease;
+    transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
 }
 
 .dish_plate {
@@ -456,7 +456,7 @@ img {
     height: auto;
     display: block;
     filter: drop-shadow(0 0.8rem 1rem rgba(0, 0, 0, 0.12));
-    transition: transform 0.15s ease;
+    transition: transform 0.4s ease;
 }
 
 .dish_text_svg {
@@ -466,7 +466,7 @@ img {
     height: 136%;
     overflow: visible;
     pointer-events: none;
-    transition: transform 0.15s ease;
+    transition: transform 0.4s ease;
 }
 
 .dish_text {
@@ -475,7 +475,7 @@ img {
     letter-spacing: 0.24em;
     fill: var(--color_mid);
     text-transform: uppercase;
-    transition: fill 0.15s ease;
+    transition: fill 0.4s ease;
 }
 
 .dish_appetizer {
@@ -1387,19 +1387,17 @@ img {
 
 .dessert_img_wrap {
     width: 100%;
-    max-width: 750px;
     display: flex;
     justify-content: center;
     align-items: center;
     justify-self: center;
     margin: 0 auto;
     margin-top: -7vw;
-    min-width: 500px;
     z-index: 0;
 }
 
 .dessert_img {
-    width: 34vw;
+    width: clamp(380px, 34vw, 800px);
     height: auto;
     display: block;
     opacity: 0;
@@ -1427,6 +1425,7 @@ img {
 
 .dessert_skills_right {
     align-items: flex-start;
+    margin-left: -5vw;
 }
 
 .dessert_skill_item {
@@ -1476,7 +1475,6 @@ img {
     margin-top: 6vw;
 }
 
-/* 오른쪽 텍스트 위치 수동 조정 */
 .dessert_skills_right .dessert_skill_item:nth-child(1) {
     margin-top: -17vw;
 }
@@ -1518,7 +1516,7 @@ img {
 }
 
 .dessert_skill_line {
-    width: clamp(80px, 10vw, 160px);
+    width: clamp(100px, 14vw, 220px);
     height: 1px;
     background: var(--color_mid);
     flex-shrink: 0;
