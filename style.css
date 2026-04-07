@@ -847,9 +847,6 @@ img {
 .strength_item.is-active .strength_arc_wrap {
     opacity: 0;
     pointer-events: none;
-    height: 0;
-    overflow: hidden;
-    margin: 0;
 }
 
 .strength_arc_svg {
