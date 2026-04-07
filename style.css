@@ -1734,18 +1734,9 @@ p.thankyou_title {
         font-size: clamp(1.6rem, 2.0vw, 2.4rem);
     }
 
-    /* .project_inner {
-        transform: translateX(0);
-    }
-
-    #nmk_section .project_img_wrap {
-        flex: 0 0 60%;
-        max-width: 60%;
-    }
-
     #nmk_section .project_img {
-        transform: none;
-    } */
+        transform: scale(1.05);
+    }
 
     .main_list {
         margin-top: 16vh;
