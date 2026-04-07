@@ -99,7 +99,6 @@ courseDishes.forEach((dish) => {
     });
 });
 
-/* ---- APPETIZER → ABOUT ME ---- */
 const appetizerDish = document.querySelector(".dish_appetizer");
 const aboutMeSection = document.querySelector("#about_me_section");
 const courseSectionEl = document.querySelector("#course_section");
@@ -122,7 +121,6 @@ appetizerDish.addEventListener("click", (e) => {
     }, 700);
 });
 
-/* ---- ABOUT ME → COURSE back ---- */
 const backToCourseLink = document.querySelector(".about_me_back");
 
 backToCourseLink.addEventListener("click", (e) => {
@@ -187,7 +185,6 @@ const nmkBackLink = document.querySelector(".nmk_back");
 const odBackLink = document.querySelector(".od_back");
 const gs25BackLink = document.querySelector(".gs25_back");
 
-// 리스트 클릭
 document.querySelectorAll(".main_item")[0].addEventListener("click", () => {
     nmkSection.classList.add("is-visible");
 });
@@ -241,7 +238,6 @@ dessertBackLink.addEventListener("click", (e) => {
     dessertSection.classList.remove("is-visible");
 });
 
-// dessert_scroll 클릭시 thankyou로 이동
 const dessertScrollBtn = document.querySelector(".dessert_scroll");
 const thankyouSection = document.querySelector("#thankyou_section");
 
@@ -256,7 +252,6 @@ dessertScrollBtn.addEventListener("click", () => {
     }, 900);
 });
 
-/* ---- THANK YOU 곡선 애니메이션 ---- */
 const thankyouObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
