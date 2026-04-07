@@ -1735,8 +1735,8 @@ p.thankyou_title {
     }
 
     #nmk_section .project_img_wrap {
-        flex: 0 0 60%;
-        max-width: 60%;
+        flex: 0 0 80%;
+        max-width: 80%;
     }
 
     #nmk_section .project_img {
