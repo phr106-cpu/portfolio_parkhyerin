@@ -1734,7 +1734,7 @@ p.thankyou_title {
         font-size: clamp(1.6rem, 2.0vw, 2.4rem);
     }
 
-    .project_inner {
+    /* .project_inner {
         transform: translateX(0);
     }
 
@@ -1745,7 +1745,7 @@ p.thankyou_title {
 
     #nmk_section .project_img {
         transform: none;
-    }
+    } */
 
     .main_list {
         margin-top: 16vh;
