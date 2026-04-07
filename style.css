@@ -1693,13 +1693,28 @@ p.thankyou_title {
 }
 
 @media (min-width: 1700px) {
+    .cover_title_wrap {
+        margin-top: 5vw;
+    }
+
+    .cover_divider {
+        margin-top: 7vw;
+    }
+
+    .cover_img {
+        max-height: 65vh;
+    }
+
+
 
     .welcome_menu_area {
         max-width: 500px;
     }
 
+
     .welcome_logo {
-        margin-bottom: 0.4rem;
+        width: 80px;
+        margin-bottom: 0.6rem;
     }
 
     .welcome_menu_deco_top {
@@ -1709,6 +1724,11 @@ p.thankyou_title {
     .welcome_menu_title {
         margin-bottom: 0.5rem;
     }
+
+    .welcome_menu_script {
+        font-size: clamp(1.4rem, 1.4vw, 1.9rem);
+    }
+
 
     .welcome_menu_deco_mid {
         margin-bottom: 1.2rem;
@@ -1734,12 +1754,30 @@ p.thankyou_title {
         font-size: clamp(1.6rem, 2.0vw, 2.4rem);
     }
 
+
     #nmk_section .project_img {
-        transform: scale(1.05);
+        transform: scale(1.15);
+    }
+
+    #nmk_section .project_inner {
+        transform: translate(-5%, 8%);
     }
 
     .main_list {
         margin-top: 16vh;
+    }
+
+
+    /* strengths */
+    #strengths_section::before {
+        font-size: clamp(13rem, 23.5vw, 31rem);
+    }
+
+    /* project */
+    #nmk_section::before,
+    #od_section::before,
+    #gs25_section::before {
+        font-size: clamp(17rem, 24.5vw, 33rem);
     }
 
     .dessert_skills {

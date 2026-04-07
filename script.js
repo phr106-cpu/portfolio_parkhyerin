@@ -174,6 +174,8 @@ mainDish.addEventListener("click", (e) => {
 mainBackLink.addEventListener("click", (e) => {
     e.preventDefault();
     mainSection.classList.remove("is-visible");
+    courseSectionEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    current_index = [...sections].indexOf(courseSectionEl);
 });
 
 /* ---- PROJECT DETAIL 섹션들 ---- */
