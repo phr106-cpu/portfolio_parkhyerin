@@ -1751,6 +1751,10 @@ p.thankyou_title {
         gap: clamp(1rem, 1.2vw, 1.6rem);
     }
 
+    .dessert_skills_right {
+        margin-top: 2rem;
+    }
+
     .dessert_skill_item+.dessert_skill_item {
         margin-top: 0;
     }
