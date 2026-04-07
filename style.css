@@ -1730,6 +1730,10 @@ p.thankyou_title {
         margin-top: -4vw;
     }
 
+    .main_item_name {
+        font-size: clamp(1.6rem, 2.0vw, 2.4rem);
+    }
+
     #nmk_section .project_img_wrap {
         flex: 0 0 54%;
         max-width: 54%;
@@ -1753,5 +1757,14 @@ p.thankyou_title {
 
     .dessert_skill_text {
         gap: 0.25rem;
+    }
+
+    .dessert_skills_left .dessert_skill_item,
+    .dessert_skills_right .dessert_skill_item {
+        margin-top: 0;
+    }
+
+    .dessert_skills {
+        gap: 1.2rem;
     }
 }
