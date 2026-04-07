@@ -257,7 +257,6 @@ dessertScrollBtn.addEventListener("click", () => {
 });
 
 /* ---- THANK YOU 곡선 애니메이션 ---- */
-// thankyou_section이 스크롤로 보일 때 곡선 애니메이션 트리거
 const thankyouObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
