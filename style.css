@@ -8,6 +8,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Palms Delight';
+    src: url('./font/Palms Delight.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --color_bg: #F5F5F5;
     --color_bg_warm: #f7f5f0;
@@ -28,6 +35,7 @@
     --font_beverly: "beverly-drive", "beverly-drive-right", cursive;
     --font_julius: 'Julius Sans One', sans-serif;
     --font_pretendard: 'Pretendard', sans-serif;
+    --font_palms: 'Palms Delight', cursive;
 
     --section_pad_v: 8vw;
     --section_pad_h: 6vw;
@@ -261,12 +269,14 @@ img {
 }
 
 .welcome_title {
-    font-family: var(--font_beverly);
-    font-size: clamp(2.8rem, 5vw, 5rem);
+    font-family: var(--font_palms);
+
+    font-size: clamp(3.1rem, 5.3vw, 5.3rem);
     line-height: 1;
     color: var(--color_dark);
     margin-bottom: 2vw;
     letter-spacing: 0;
+    font-weight: 300;
 }
 
 .welcome_desc {
